@@ -1,12 +1,12 @@
 class Company {
-    constructor(symbol, name, description, changes, price, currency, image) {
-        this.symbol = symbol;
-        this.name = name;
-        this.description = description;
-        this.changes = changes;
-        this.price = price;
-        this.currency = currency;
-        this.image = image;
+    constructor(apiCompany) {
+        this.symbol = apiCompany.symbol;
+        this.companyName = apiCompany.companyName;
+        this.description = apiCompany.description;
+        this.changes = apiCompany.changes;
+        this.price = apiCompany.price;
+        this.currency = apiCompany.currency;
+        this.image = apiCompany.image;
     }
 }
 
