@@ -1,0 +1,72 @@
+[
+    {
+        "symbol": "AA",
+        "name": "Alcoa Corporation",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAU",
+        "name": "Almaden Minerals Ltd.",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange Arca",
+        "exchangeShortName": "AMEX"
+    },
+    {
+        "symbol": "AAT",
+        "name": "American Assets Trust, Inc.",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAP",
+        "name": "Advance Auto Parts, Inc.",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAN",
+        "name": "The Aaron's Company, Inc.",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAM",
+        "name": "AA Mission Acquisition Corp.",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAL",
+        "name": "American Airlines Group Inc.",
+        "currency": "USD",
+        "stockExchange": "NASDAQ Global Select",
+        "exchangeShortName": "NASDAQ"
+    },
+    {
+        "symbol": "AAC",
+        "name": "Ares Acquisition Corporation",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange",
+        "exchangeShortName": "NYSE"
+    },
+    {
+        "symbol": "AAA",
+        "name": "AXS First Priority CLO Bond ETF",
+        "currency": "USD",
+        "stockExchange": "New York Stock Exchange Arca",
+        "exchangeShortName": "AMEX"
+    },
+    {
+        "symbol": "AAXT",
+        "name": "Aamaxan Transport Group, Inc.",
+        "currency": "USD",
+        "stockExchange": "Other OTC",
+        "exchangeShortName": "OTC"
+    }
+]
