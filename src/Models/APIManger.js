@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import apiHandlers from '../Utils/apiHandlers.js';
 class APIManager {
     constructor(apiKey) {
@@ -11,9 +11,9 @@ class APIManager {
      * @returns array of stocks symbols
      */
     async searchStocks(query, limit = 10) {
-        // const result = await axios(apiHandlers.searchPath(query, limit, this.key));
-        // const search = result.data;
-        const search = searchMock;
+        const result = await axios(apiHandlers.searchPath(query, limit, this.key));
+        const search = result.data;
+        // const search = searchMock; //
         const symbolsArr = search.map(item => item.symbol);
         return symbolsArr;
     }
@@ -23,10 +23,10 @@ class APIManager {
      * @returns array of stocks profiles
      */
     async getMultiStocks(symbols) {
-        // const joinedSymbols = symbols.join(',');
-        // const result = await axios(apiHandlers.multiProfilePath(joinedSymbols, this.key));
-        // const profiles = result.data;
-        const profiles = multiProfileMock;
+        const joinedSymbols = symbols.join(',');
+        const result = await axios(apiHandlers.multiProfilePath(joinedSymbols, this.key));
+        const profiles = result.data;
+        // const profiles = multiProfileMock;
         return profiles;
     }
 
