@@ -5,6 +5,7 @@ import SearchService from "./View/search.js";
 
 let state = new APIManager(ENV.API_KEY);
 
+
 async function main() {
     // let profiles = await state.searchStocks('AA');
     const profiles = await state.getSingleStock('AA');
