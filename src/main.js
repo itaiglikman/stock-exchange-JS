@@ -1,10 +1,11 @@
 import APIManager from "./Models/APIManger.js";
 import { ENV } from "../env.js";
 import Company from "./Models/Company.js";
+import SearchService from "./View/search.js";
 
 let state = new APIManager(ENV.API_KEY);
 
-async function search() {
+async function main() {
     // let profiles = await state.searchStocks('AA');
     const profiles = await state.getSingleStock('AA');
     // const profiles = await state.getMultiStocks('AA');
@@ -13,12 +14,16 @@ async function search() {
     console.log(company);
 }
 
-const symbols = [
-    'AAL', 'AAXJ',
-    'AAWW', 'AAVM',
-    'AARD', 'AAPU',
-    'AAPL', 'AAPG',
-    'AAPD', 'AAPB'
-]
+$('#searchBtn').on('click', async () => {
+    await SearchService.handleSearchBtnClick(state);
+})
 
-search();
+// const symbols = [
+//     'AAL', 'AAXJ',
+//     'AAWW', 'AAVM',
+//     'AARD', 'AAPU',
+//     'AAPL', 'AAPG',
+//     'AAPD', 'AAPB'
+// ]
+
+// main();

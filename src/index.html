@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script> <!-- loader cdn-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Stock Exchange</title>
@@ -12,6 +14,29 @@
 
 <body>
 
+    <header>
+        <div class="container">
+            <h1>Stock Search</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="search-section">
+            <div class="top-search">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for a stock..." />
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+            <ul id="searchResults" class="search-results"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Stock App</p>
+        </div>
+    </footer>
+
+    <!-- <script type="module" src="./View/search.js"></script> -->
     <script src="main.js" type="module"></script>
 </body>
 
