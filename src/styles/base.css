@@ -25,6 +25,18 @@ body {
   margin: 0 auto;
 }
 
+header,
+footer {
+  background: #1a202c;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+main {
+  padding: 2rem 0;
+}
+
 .red {
   color: red;
 }
