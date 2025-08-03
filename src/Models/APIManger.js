@@ -41,6 +41,18 @@ class APIManager {
         return profile;
     }
 
+    /**
+     * @param {*} symbols
+     * @returns array of stocks' objects with symbol,price and change
+     */
+    async getQuotesForMarquee(symbols) {
+        const joinedSymbols = symbols.join(',');
+        const result = await axios(apiHandlers.multiProfilePath(joinedSymbols, this.key));
+        const quotes = result.data;
+        const marqueeInfo = apiHandlers.getOnlyMarqueeNecessary(quotes);
+        return marqueeInfo;
+    }
+
     async getStockHistory(symbol) {
         const result = await axios.get(apiHandlers.profileHistoryPath(symbol, this.key));
         const history = result.data.historical;

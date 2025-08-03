@@ -2,6 +2,7 @@ import APIManager from "./Models/APIManger.js";
 import { ENV } from "../env.js";
 import Company from "./Models/Company.js";
 import SearchService from "./View/search.js";
+import searchHandler from "./Utils/searchHandler.js";
 
 let state = new APIManager(ENV.API_KEY);
 
@@ -14,6 +15,8 @@ async function main() {
     const company = new Company(profiles);
     console.log(company);
 }
+
+searchHandler.displayMarquee(state);
 
 $('#searchBtn').on('click', async () => {
     await SearchService.handleSearchBtnClick(state);

@@ -20,6 +20,19 @@ function profileHistoryPath(symbol, key) {
     return base + `historical-price-full/${symbol}?serietype=line&apikey=${key}`;
 }
 
+// https://financialmodelingprep.com/api/v3/quote/AAPL,MSFT,GOOG?apikey=1xTipGBKJJe1z7zcYpslPWvDxowbuBZl
+function quotesPath(symbols, key) {
+    return base + `quote/${symbols}?apikey=${key}`;
+}
+
+function getOnlyMarqueeNecessary(quotes) {
+    console.log(quotes);
+    const marqueeInfo = quotes.map(q => {
+        return { symbol: q.symbol, price: q.price, changes: q.changes }
+    })
+    return marqueeInfo;
+}
+
 // create a partial history array with 10 days
 function get10PeriodsOfStockHistory(fullHistory) {
     if (fullHistory.length <= 10) return fullHistory.reverse();
@@ -37,5 +50,7 @@ export default {
     singleProfilePath,
     multiProfilePath,
     profileHistoryPath,
+    quotesPath,
+    getOnlyMarqueeNecessary,
     get10PeriodsOfStockHistory
 }
