@@ -96,3 +96,8 @@
 .search-results .company-numbers {
     font-size: 0.8rem;
 }
+
+.highlight {
+    background: yellow;
+    border-radius: 3px;
+}
