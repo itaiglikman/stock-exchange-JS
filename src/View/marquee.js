@@ -1,10 +1,9 @@
-async function displayMarquee(state) {
+export default async function displayMarquee(marqueeElement, state) {
 
     const symbols = [
         'NVDA', 'NVO', 'UNH', 'AMD', 'SOFI', 'REPL', 'TSLA', 'META', 'MSFT', 'AMBQ', 'AMZN', 'GOOG', 'GOOGL', 'HON', 'ASML', 'WM', 'AXP', 'CRM'
     ];
 
-    const marquee = $('#marquee');
     const container = $('<div>').addClass('marquee');
     let marqueeInfo = [];
     // marqueeInfo = await state.getQuotesForMarquee(symbols);
@@ -18,7 +17,7 @@ async function displayMarquee(state) {
         container.append(infoItem);
     });
 
-    marquee.append(container);
+    marqueeElement.append(container);
 }
 
 const marqueeInfoMock = [
@@ -111,8 +110,4 @@ const marqueeInfoMock = [
         "price": 228.88,
         "changes": -0.28
     }
-]
-
-export default {
-    displayMarquee,
-}
+];

@@ -2,21 +2,16 @@ import APIManager from "./Models/APIManger.js";
 import { ENV } from "../env.js";
 import Company from "./Models/Company.js";
 import SearchService from "./View/search.js";
-import searchHandler from "./Utils/searchHandler.js";
+import Marquee from './View/marquee.js';
 
 let state = new APIManager(ENV.API_KEY);
 
 
 async function main() {
-    // let profiles = await state.searchStocks('AA');
-    const profiles = await state.getSingleStock('AA');
-    // const profiles = await state.getMultiStocks('AA');
-    // console.log(profiles);
-    const company = new Company(profiles);
-    console.log(company);
+    await Marquee($('#marquee'), state);
+
 }
 
-searchHandler.displayMarquee(state);
 
 $('#searchBtn').on('click', async () => {
     await SearchService.handleSearchBtnClick(state);
@@ -31,4 +26,4 @@ $('#searchBtn').on('click', async () => {
 //     'AAPD', 'AAPB'
 // ]
 
-// main();
+main();
