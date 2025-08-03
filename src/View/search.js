@@ -5,10 +5,17 @@ const searchResultsUl = $('#searchResults');
 function displaySearchUl(profiles) {
     for (const profile of profiles) {
         const li = $('<li>');
+        li.append($('<img>').addClass('company-logo').attr('src', profile.image));
         li.append($('<span>').addClass('symbol').text(profile.symbol));
         li.append($('<span>').addClass('company-name').text(profile.companyName));
-        li.append($('<span>').addClass('exchange').text(profile.exchangeShortName || ''));
-        li.on('click', () => window.location.href = `View/company.html?symbol=${profile.symbol}`); // link to the company page with the symbol param
+        li.append($('<span>').addClass('company-numbers').text(profile.price));
+        const changesColor = profile.changes > 0 ? 'green' : 'red'
+        li.append($('<span>').addClass('company-numbers').addClass(changesColor)
+            .text('(' + profile.changes + '%)'));
+        li.append($('<span>').addClass('exchange').text(profile.exchangeShortName));
+
+        // link to the company page with the symbol param
+        li.on('click', () => window.location.href = `View/company.html?symbol=${profile.symbol}`);
         searchResultsUl.append(li);
     }
 }
