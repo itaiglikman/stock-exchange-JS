@@ -84,13 +84,19 @@
   color: #2d3748;
 }
 
-.search-results .exchange {
+.search-results .compare {
     font-size: 0.95rem;
     color: #718096;
     background: #e6f0fa;
     border-radius: 4px;
     padding: 0.2rem 0.6rem;
     margin-left: auto;
+}
+
+.search-results .compare:hover {
+    background: #cbd5e0;
+    color: #2d3748;
+    border: 1px solid #a0aec0;
 }
 
 .search-results .company-numbers {

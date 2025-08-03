@@ -39,7 +39,7 @@ function createLiItem(profile, inputValue) {
     const changesColor = profile.changes > 0 ? 'green' : 'red';
     li.append($('<span>').addClass('company-numbers').addClass(changesColor)
         .text('(' + profile.changes + '%)'));
-    li.append($('<span>').addClass('exchange').text(profile.exchangeShortName));
+    li.append(handleCompareBtn(profile));
 
     // link to the company page with the symbol param
     li.on('click', () => window.location.href = `View/company.html?symbol=${profile.symbol}`);
@@ -60,6 +60,23 @@ function highlight(str, value) {
         return $('<span>').append(highlighted, restOfStr);
     }
     return $('<span>').text(str);
+}
+
+/**
+ * create an element which onclick will log the profile object
+ * @param {*} profile 
+ * @returns element
+ */
+function handleCompareBtn(profile) {
+    const btn = $('<span>')
+        .addClass('compare')
+        .text('Compare')
+        .attr('compare-id', profile.symbol)
+        .on('click', () => {
+            event.stopPropagation(); // Prevents the li click event
+            console.log(profile);
+        });
+    return btn;
 }
 
 export default {
