@@ -6,19 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico"> <!-- favicon -->
     <link rel="stylesheet" href="./styles/base.css">
-    <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/search.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script> <!-- loader cdn-->
     <script src="https://cdn.jsdelivr.net/gh/Sean-93/newmarquee@v0.9.1/dist/newmarquee-min.js"></script>
     <!-- marquee -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jquery -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios -->
-    <title>Stock Exchange</title>
+    <title>Stock Exchange - Home</title>
 </head>
 
 <body>
 
-    
+
     <header>
         <div class="container">
             <new-marquee id="marquee" speed="70" direction="left" pauseonhover="true"></new-marquee>
@@ -27,13 +26,7 @@
     </header>
 
     <main class="container">
-        <section id="search-section">
-            <div class="top-search">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search for a stock..." />
-                <button id="searchBtn" class="search-btn">Search</button>
-            </div>
-            <ul id="searchResults" class="search-results"></ul>
-        </section>
+        <section id="searchSection"></section>
     </main>
 
     <footer>
