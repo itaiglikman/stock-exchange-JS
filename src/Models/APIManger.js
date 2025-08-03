@@ -35,10 +35,18 @@ class APIManager {
      * @returns single stock profile object
      */
     async getSingleStock(symbol) {
-        // const result = await axios(apiHandlers.singleProfilePath(symbol, this.key));
-        // const profile = result.data;
-        const profile = singleProfileMock[0];
+        const result = await axios(apiHandlers.singleProfilePath(symbol, this.key));
+        const profile = result.data[0];
+        // const profile = singleProfileMock[0]; //
         return profile;
+    }
+
+    async getStockHistory(symbol) {
+        const result = await axios.get(apiHandlers.profileHistoryPath(symbol, this.key));
+        const history = result.data.historical;
+        // arr with 10 days across stock's history:
+        const partialHistory = apiHandlers.get10PeriodsOfStockHistory(history);
+        return partialHistory;
     }
 }
 
