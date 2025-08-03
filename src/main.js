@@ -19,6 +19,7 @@ $('#searchBtn').on('click', async () => {
     await SearchService.handleSearchBtnClick(state);
 })
 
+
 // const symbols = [
 //     'AAL', 'AAXJ',
 //     'AAWW', 'AAVM',
