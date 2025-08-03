@@ -25,7 +25,7 @@ export default async function Search(container, state) {
         const symbols = await state.searchStocks(query);
         const profiles = await state.getMultiStocks(symbols);
         $(spinnerElement).hide().empty(); // omit spinner when results are back
-        searchUtils.displaySearchUl(profiles, searchResultsUl);
+        searchUtils.displaySearchUl(profiles, searchResultsUl, query);
     }
 
     displaySearchArea();
