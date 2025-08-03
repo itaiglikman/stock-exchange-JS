@@ -1,12 +1,64 @@
+export function createCompanyPage(container, profile, history) {
+    createCompanyProfileCard(container, profile);
+    createChartCard(container, profile.symbol);
+    handleChart(history, profile.symbol);
 
-function handleCompanyData(profile) {
-    $('#companyLogo').attr('src', profile.image);
-    $('#companyName').text(profile.companyName);
-    $('#companySymbol').text(profile.symbol);
-    $('#companyDescription').text(profile.description);
-    $('#companyPrice').text(symbolsMap.get(profile.currency) + profile.price);
-    $('#companyChange').text("(" + profile.changes + "%)").addClass(profile.changes > 0 ? 'green' : 'red');
-    $('#companyCurrency').text(profile.currency);
+}
+
+function createCompanyProfileCard(container, profile) {
+    // Company Profile Card
+    const $companyLogo = $('<img>')
+        .addClass('company-logo')
+        .attr('id', 'companyLogo')
+        .attr('src', profile.image)
+        // in case image is not available - display favicon
+        .on('error', function () { $(this).attr('src', 'images/favicon.ico') });
+    const $companyName = $('<h2>')
+        .attr('id', 'companyName')
+        .text(profile.companyName);
+    const $companySymbol = $('<span>')
+        .addClass('company-symbol')
+        .attr('id', 'companySymbol')
+        .text(profile.symbol);
+    const $companyPrice = $('<span>')
+        .attr('id', 'companyPrice')
+        .text(symbolsMap.get(profile.currency) + profile.price);
+    const $companyChange = $('<span>')
+        .attr('id', 'companyChange')
+        .text("(" + profile.changes + "%)")
+        .addClass(profile.changes > 0 ? 'green' : 'red');
+    const $companyMeta = $('<div>')
+        .addClass('company-meta')
+        .append($companyName, $companySymbol, $companyPrice, $companyChange);
+    const $companyHeader = $('<div>')
+        .addClass('company-header')
+        .append($companyLogo, $companyMeta);
+    const $companyDescription = $('<p>').attr('id', 'companyDescription').text(profile.description);
+    const $companyDetails = $('<div>')
+        .addClass('company-details')
+        .append($companyDescription);
+    const $companyProfileCard = $('<section>')
+        .addClass('card company-profile-card')
+        .append($companyHeader, $companyDetails);
+
+    $(container).append($companyProfileCard);
+}
+
+function createChartCard(container, symbol) {
+    // Company History Card
+    const $companyChart = $('<canvas>')
+        .addClass('company-chart')
+        .attr({ id: 'companyChart' });
+    const $companyChartContainer = $('<div>')
+        .addClass('company-chart-container')
+        .append($companyChart);
+    const $companyHistoryTitle = $('<h3>').text('Stock History');
+    const $companyHistoryCard = $('<section>')
+        .addClass('card company-history-card')
+        .append($companyHistoryTitle, $companyChartContainer);
+
+    // Append everything to the container
+    $(container).append($companyHistoryCard);
 }
 
 function handleChart(history, symbol) {
@@ -78,6 +130,10 @@ function handleChart(history, symbol) {
     });
 }
 
+// export default {
+//     createCompanyPage
+// }
+
 const symbolsMap = new Map([
     ['AED', 'د.إ'], ['AFN', '؋'], ['ALL', 'L'], ['AMD', '֏'], ['ANG', 'ƒ'], ['AOA', 'Kz'],
     ['ARS', '$'], ['AUD', '$'], ['AWG', 'ƒ'], ['AZN', '₼'], ['BAM', 'KM'], ['BBD', '$'], ['BDT', '৳'],
@@ -116,8 +172,3 @@ const symbolsMap = new Map([
     ['ZAR', 'R'], ['ZMW', 'ZK'], ['ZWD', 'Z$'], ['ZWL', '$']
 ]);
 
-
-export default {
-    handleCompanyData,
-    handleChart,
-}
